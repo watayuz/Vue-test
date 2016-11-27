@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>vue test</title>
+</head>
+
+<body>
+
+	<div id="todoApp">
+		<h2 v-bind:style="fontStyle">{{ title }}</h2>
+		<input type="text" v-model="todo" v-on:keyup.enter="addTodo">
+		<div>
+			<div v-if="seen" v-for="(t, index) in todos"
+			v-bind:class="['todo-default', t.doing ? 'todo-doing' : '']"
+			v-on:click="begin($index)">
+			{{index + 1}}.  {{t.name}}
+		</div>
+	</div>
+	<button type="button" v-on:click="hidden()">hidden</button>
+</div>
+
+<script src="node_modules/vue/dist/vue.min.js" type="text/javascript"></script>
+<script src="index.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>
